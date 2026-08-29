@@ -1,0 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion'
+import courtImage from '../assets/images/arena/court.webp'
+import { ImageWithSkeleton } from './ImageWithSkeleton'
+export function CourtsHighlight() { const reduced = useReducedMotion(); const reveal = reduced ? {} : { initial: { opacity: 0, y: 22 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: .2 }, transition: { duration: .5 } }; return <section className="courts" aria-labelledby="courts-heading"><motion.div {...reveal} className="courts-copy"><span className="court-number">21</span><p className="eyebrow">PICKLEBALL COURTS</p><h2 id="courts-heading">MORE COURTS.<br />MORE GAMES.</h2><p className="body-copy">More ways to play.</p></motion.div><motion.div {...reveal} className="courts-image"><ImageWithSkeleton src={courtImage} alt="Pickleball courts at Dink Arena PH" /></motion.div></section> }

@@ -1,0 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion'
+import arenaImage from '../assets/images/arena/arena.webp'
+import { ImageWithSkeleton } from './ImageWithSkeleton'
+export function Arena() { const reduced = useReducedMotion(); const reveal = reduced ? {} : { initial: { opacity: 0, y: 22 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: .2 }, transition: { duration: .5 } }; return <section id="arena" className="arena wrap" aria-labelledby="arena-heading"><motion.div {...reveal} className="arena-intro"><p className="eyebrow">THE ARENA</p><h2 id="arena-heading">BUILT FOR<br />THE GAME.</h2><p className="body-copy">A pickleball destination designed for players, competition, and community.</p></motion.div><motion.div {...reveal} className="arena-image"><ImageWithSkeleton src={arenaImage} alt="Dink Arena PH pickleball facility" /></motion.div></section> }
